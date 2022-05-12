@@ -1,0 +1,27 @@
+﻿@model ItemStatusVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Status</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="itemStatus" class="control-label"></label>
+                <input asp-for="itemStatus" class="form-control" />
+                <span asp-validation-for="itemStatus" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-dark btn-sm">Back to List</a>
+                <input type="submit" value="Save" class="btn btn-warning btn-sm" />
+            </div>
+        </form>
+    </div>
+</div>

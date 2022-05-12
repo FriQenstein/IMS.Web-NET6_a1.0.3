@@ -1,0 +1,81 @@
+﻿@model IEnumerable<InboundInvoiceVM>
+
+@{
+    ViewData["Title"] = "Inbound Shipments";
+}
+
+<h1>Incoming Shipments</h1>
+<br />
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Create New</a>
+</p>
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.invoiceNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.invoiceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.invoiceNotes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.invoiceNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.invoiceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.invoiceNotes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm"><i class="fa-solid fa-pencil-alt"></i></a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"><i class="fa-solid fa-circle-info"></i></a>
+                <button data-id="@item.Id" class="btn btn-danger btn-sm deleteBtn" type="button"><i class="fa-solid fa-trash-can"></i></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<form id="deleteForm" asp-action="Delete">
+    <input type="hidden" id="clientId" name="Id"/>
+</form>
+
+@section Scripts {
+    <script>        
+        $(function() {
+            $('.table').DataTable();
+            $('.deleteBtn').click(function(e) {
+                swal( {
+                    title: "Are you sure?",
+                    text: "Are you sure you want to delete this record?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true
+                }).then((confirm) => {
+                    if(confirm) {
+                        var btn = $(this);
+                        var id = btn.data("id");
+                        $('#clientId').val(id);
+                        $('#deleteForm').submit();
+                    }
+                });
+            });
+        });
+    </script>
+}

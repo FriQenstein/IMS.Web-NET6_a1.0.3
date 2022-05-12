@@ -1,0 +1,25 @@
+﻿@model IMS.Web.Data.ItemStatus
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete A Status</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemStatus)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <a asp-action="Index" class="btn btn-dark btn-sm">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger btn-sm" />
+    </form>
+</div>

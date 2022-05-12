@@ -1,0 +1,86 @@
+﻿@model ClientVM
+
+@{
+    ViewData["Title"] = "New Client";
+}
+
+<h1>Create New Client</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="companyName" class="control-label"></label>
+                <input asp-for="companyName" class="form-control" />
+                <span asp-validation-for="companyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="firstName" class="control-label"></label>
+                <input asp-for="firstName" class="form-control" />
+                <span asp-validation-for="firstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastName" class="control-label"></label>
+                <input asp-for="lastName" class="form-control" />
+                <span asp-validation-for="lastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="emailAddress" class="control-label"></label>
+                <input asp-for="emailAddress" class="form-control" />
+                <span asp-validation-for="emailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bPhone" class="control-label"></label>
+                <input asp-for="bPhone" class="form-control" />
+                <span asp-validation-for="bPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="mPhone" class="control-label"></label>
+                <input asp-for="mPhone" class="form-control" />
+                <span asp-validation-for="mPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="streetAddress" class="control-label"></label>
+                <input asp-for="streetAddress" class="form-control" />
+                <span asp-validation-for="streetAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cityName" class="control-label"></label>
+                <input asp-for="cityName" class="form-control" />
+                <span asp-validation-for="cityName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="stateName" class="control-label"></label>
+                <input asp-for="stateName" class="form-control" />
+                <span asp-validation-for="stateName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="postalCode" class="control-label"></label>
+                <input asp-for="postalCode" class="form-control" />
+                <span asp-validation-for="postalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="countryName" class="control-label"></label>
+                <input asp-for="countryName" class="form-control" />
+                <span asp-validation-for="countryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="webAddress" class="control-label"></label>
+                <input asp-for="webAddress" class="form-control" />
+                <span asp-validation-for="webAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-dark btn-sm">Back to List</a>
+                <input type="submit" value="Create" class="btn btn-primary btn-sm" />
+            </div>
+        </form>
+    </div>
+</div>

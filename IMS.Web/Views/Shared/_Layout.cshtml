@@ -19,7 +19,7 @@
         
     </header>
     <div id="wrapper">
-    <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+    <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 toggled">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" asp-controller="Home" asp-action="Index">
                     <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
@@ -29,7 +29,8 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Index"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Clients" asp-action="Index"><i class="fas fa-user"></i><span>Clients</span></a></li>
-                    <hr style="margin:-5px 15px -5px 15px;"/><li class="nav-item"><a class="nav-link" ><span>Invoicing</span></a></li>
+                    <hr style="margin:-5px 15px -5px 15px;"/>
+                    @*<li class="nav-item"><a class="nav-link" ><span>Invoicing</span></a></li>*@
                     <li class="nav-item"><a class="nav-link" asp-controller="InboundInvoices" asp-action="Index"><i class="fas fa-truck-arrow-right"></i><span>Inbound</span></a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="OutboundInvoices" asp-action="Index"><i class="fas fa-truck-arrow-right" style="transform:scaleX(-1);"></i><span>Outbound</span></a></li>
                     <hr style="margin:-5px 15px -5px 15px;"/>                    

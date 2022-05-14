@@ -13,6 +13,7 @@ namespace IMS.Web.Models
         public string clientName { get; set; }
 
         [Display(Name = "Invoice Date")]
+        [DataType(DataType.Date)]
         public DateTime? invoiceDate { get; set; }
 
         [Display(Name = "Invoice Notes")]

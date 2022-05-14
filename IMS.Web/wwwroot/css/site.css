@@ -16,3 +16,43 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/*CUSTOM CONFIGURATIONS*/
+
+.hrThin {
+    margin: -5px 15px -5px 15px;
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.btnEdit {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+}
+
+.btnDetails {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+}
+
+.btnDelete {
+    font-size: 10px;
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+}
+
+.shadow1 {
+    box-shadow: 0px 0px 15px 5px #000000;
+}
+
+.algnStuuff {
+    align-content: center;
+}

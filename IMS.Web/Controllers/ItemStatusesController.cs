@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using IMS.Web.Data;
 using IMS.Web.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IMS.Web.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class ItemStatusesController : Controller
     {
         private readonly ApplicationDbContext _context;

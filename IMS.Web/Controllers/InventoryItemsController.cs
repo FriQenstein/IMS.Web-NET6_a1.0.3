@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using IMS.Web.Data;
 using AutoMapper;
 using IMS.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IMS.Web.Controllers
 {
+    [Authorize(Roles = "Administrator, User")]
     public class InventoryItemsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -49,6 +51,7 @@ namespace IMS.Web.Controllers
         }
 
         // GET: InventoryItems/Create
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
@@ -59,6 +62,7 @@ namespace IMS.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Create(InventoryItemVM inventoryItemVM)
         {
             if (ModelState.IsValid)
@@ -72,6 +76,7 @@ namespace IMS.Web.Controllers
         }
 
         // GET: InventoryItems/Edit/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,6 +99,7 @@ namespace IMS.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id, InventoryItemVM inventoryItemVM)
         {
             if (id != inventoryItemVM.Id)
@@ -126,6 +132,7 @@ namespace IMS.Web.Controllers
         }
 
         // GET: InventoryItems/Delete/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -146,6 +153,7 @@ namespace IMS.Web.Controllers
         // POST: InventoryItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var inventoryItem = await _context.InventoryItems.FindAsync(id);

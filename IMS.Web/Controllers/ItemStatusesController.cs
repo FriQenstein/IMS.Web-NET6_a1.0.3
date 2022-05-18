@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace IMS.Web.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator, User")]
     public class ItemStatusesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -51,6 +51,7 @@ namespace IMS.Web.Controllers
         }
 
         // GET: ItemStatuses/Create
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
@@ -61,6 +62,7 @@ namespace IMS.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Create(ItemStatusVM itemStatusVM)
         {
             if (ModelState.IsValid)
@@ -74,6 +76,7 @@ namespace IMS.Web.Controllers
         }
 
         // GET: ItemStatuses/Edit/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,6 +99,7 @@ namespace IMS.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id, ItemStatusVM itemStatusVM)
         {
             if (id != itemStatusVM.Id)
@@ -128,6 +132,7 @@ namespace IMS.Web.Controllers
         }
 
         // GET: ItemStatuses/Delete/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -148,6 +153,7 @@ namespace IMS.Web.Controllers
         // POST: ItemStatuses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var itemStatus = await _context.ItemStatuses.FindAsync(id);

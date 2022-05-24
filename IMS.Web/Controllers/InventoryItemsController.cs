@@ -166,5 +166,15 @@ namespace IMS.Web.Controllers
         {
             return _context.InventoryItems.Any(e => e.Id == id);
         }
+
+        public async Task<IActionResult> Q_full_PGS()
+        {
+            var client1 = "PGS";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
     }
 }

@@ -50,6 +50,14 @@ namespace IMS.Web.Controllers
             return View(clientVM);
         }
 
+
+        //ClientList
+        public async Task<IActionResult> ClientList(int? id)
+        {
+            var clients = mapper.Map<List<ClientDisplayVM>>(await _context.Clients.ToListAsync());
+            return View(clients);
+        }
+
         // GET: Clients/Create
         [Authorize(Roles = "Administrator")]
         public IActionResult Create()

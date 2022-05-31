@@ -4,17 +4,27 @@
     ViewData["Title"] = "Clients";
 }
 
-@*<h4>Client List</h4>*@
-<br />
-@*<p>
-    <a asp-action="Create" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Create New</a>
-</p>*@
-<div class="container" style="display:flex;justify-content: center;">
-<table class="table table-striped table-sm f12" style="width:40%;box-shadow:0 0 15px 5px;border-radius:5px;">
-    <thead>
+<html>
+    <body>
+
+<div class="d-sm-flex align-items-center mb-4">
+    <a id="draggable1" class="btn btn-warning btn-sm d-none d-sm-inline-block draggable ui-widget-content ui-draggable ui-draggable-handle"
+            style="border: 1px solid;" role="button" asp-controller="Clients" asp-action="Index_PGS">
+        <i class="fas fa-download fa-sm text-white-50"></i>&nbsp; PGS
+    </a>
+    <a id="draggable2" class="btn btn-warning btn-sm d-none d-sm-inline-block draggable ui-widget-content ui-draggable ui-draggable-handle"
+            style="border: 1px solid;" role="button" asp-controller="Clients" asp-action="Index_BGP">
+        <i class="fas fa-download fa-sm text-white-50"></i>&nbsp; BGP
+    </a>
+</div>
+
+<div class="container shadow1" style="display:flex;justify-content:center;width:55%;border-radius:5px;">
+
+    <table class="table table-striped table-sm f12">
+    <thead style="font-weight:strong;font-size:18px;">
         <tr>
-            <th style="font-size:18px;">
-                <strong>@Html.DisplayNameFor(model => model.companyName)</strong>
+            <th>
+                @Html.DisplayNameFor(model => model.companyName)
             </th>
             @*<th>
                 @Html.DisplayNameFor(model => model.firstName)
@@ -52,7 +62,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
             </th>*@
-            @*<th></th>*@
         </tr>
     </thead>
     <tbody>
@@ -97,21 +106,23 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>*@
-            @*<td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm " style="font-size: 10px; height: 20px; width: 20px; padding: 0px;"><i class="fa-solid fa-pencil-alt" style="padding:4px;"></i></a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm " style="font-size: 10px; height: 20px; width: 20px; padding: 0px;"><i class="fa-solid fa-circle-info" style="padding:4px;"></i></a>
-                <button data-id="@item.Id" class="btn btn-danger btn-sm deleteBtn " type="button" style="font-size: 10px; height: 20px; width: 20px; padding: 0px;"><i class="fa-solid fa-trash-can" style="padding:2px;"></i></button>
-            </td>*@
         </tr>
 }
     </tbody>
 </table>
+
 </div>
 
-@*@section Scripts {
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+</body>
+</html>
+
+@section Scripts {
     <script>        
         $(function() {
             $('.table').DataTable();
         });
     </script>
-}*@
+}

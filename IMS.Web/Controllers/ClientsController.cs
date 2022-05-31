@@ -174,5 +174,25 @@ namespace IMS.Web.Controllers
         {
             return _context.Clients.Any(e => e.Id == id);
         }
+
+        public async Task<IActionResult> Index_PGS(int? id)
+        {
+            var client1 = "PGS";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_BGP(int? id)
+        {
+            var client1 = "BGP";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
     }
 }

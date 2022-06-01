@@ -20,6 +20,8 @@ namespace IMS.Web.Configurations
 
             CreateMap<InventoryItem, InventoryItemVM>().ReverseMap();
             CreateMap<InventoryItem, InventoryItemDisplayVM>().ReverseMap();
+
+            CreateMap<LeaveType, LeaveTypeVM>().ReverseMap();
         }
     }
 }

@@ -19,6 +19,9 @@ namespace IMS.Web.Data
             builder.ApplyConfiguration(new UserRoleSeedConfiguration());
         }
 
+        public DbSet<LeaveType> LeaveTypes { get; set; }
+        public DbSet<LeaveAllocation> LeaveAllocation { get; set; }
+
         public DbSet<Client> Clients { get; set; }
 
         public DbSet<ItemType> ItemType { get; set; }

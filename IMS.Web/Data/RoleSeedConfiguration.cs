@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using IMS.Web.Constants;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,14 +13,14 @@ namespace IMS.Web.Data
                 new IdentityRole   // ADMIN ROLE
                 {
                     Id = "36bfcd2c-c68c-4c1a-82ac-d5f719ffccec",
-                    Name = "Administrator",
-                    NormalizedName = "ADMINISTRATOR"
+                    Name = Roles.Administrator,
+                    NormalizedName = Roles.Administrator.ToUpper()
                 },
                 new IdentityRole  // USER ROLE
                 {
                     Id = "36bfcd2c-aaaa-aaaa-aaaa-d5f719ffaaaa",
-                    Name = "User",
-                    NormalizedName = "USER"
+                    Name = Roles.User,
+                    NormalizedName = Roles.User.ToUpper()
                 }
             );
         }

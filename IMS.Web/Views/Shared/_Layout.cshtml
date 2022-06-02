@@ -1,4 +1,5 @@
-﻿@using IMS.Web.Data
+﻿@using IMS.Web.Constants
+@using IMS.Web.Data
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<Employee> SignInManager
 @inject UserManager<Employee> UserManager
@@ -35,7 +36,7 @@
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        @if(User.IsInRole("Administrator"))
+                        @if(User.IsInRole(Roles.Administrator))
                         {
                         @*<li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Index"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>*@
                         <li class="nav-item"><a class="nav-link" asp-controller="Clients" asp-action="Index"><i class="fas fa-user"></i><span>Clients</span></a></li>
@@ -191,7 +192,7 @@
                     </div>
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        @if(User.IsInRole("Administrator"))
+                        @if(User.IsInRole(Roles.Administrator))
                         {
                             <div class="row">
                                 <div class="col-md-6 col-xl-3 mb-4">

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using IMS.Web.Data;
+using IMS.Web.Models;
 
 namespace IMS.Web.Data
 {

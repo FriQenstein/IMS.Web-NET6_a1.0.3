@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EmployeeListVM>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h4>Employees</h4>
+
+<table class="table table-striped table-sm f12">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateJoined)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateJoined)
+            </td>
+            <td>
+                <a asp-action="ViewAllocations" asp-route-id="@item.Id" class="btn btn-primary btn-sm"><i class="fa-solid fa-circle-info" style="padding:4px;"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

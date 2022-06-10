@@ -22,6 +22,7 @@ namespace IMS.Web.Data
 
         public DbSet<LeaveType> LeaveTypes { get; set; }
         public DbSet<LeaveAllocation> LeaveAllocation { get; set; }
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
 
         public DbSet<Client> Clients { get; set; }
 

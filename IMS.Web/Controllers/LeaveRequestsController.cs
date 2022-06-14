@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IMS.Web.Data;
 using IMS.Web.Models;
 using IMS.Web.Contracts;
 using Microsoft.AspNetCore.Authorization;
+using IMS.Web.Constants;
 
 namespace IMS.Web.Controllers
 {
@@ -28,30 +25,45 @@ namespace IMS.Web.Controllers
             this.leaveTypeRepository = leaveTypeRepository;
         }
 
+        [Authorize(Roles = Roles.Administrator)]
         // GET: LeaveRequests
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.LeaveRequests.Include(l => l.LeaveType);
-            return View(await applicationDbContext.ToListAsync());
+            var model = await leaveRequestRepository.GetAdminLeaveRequestList();
+            return View(model);
+        }
+
+        public async Task<ActionResult> MyLeave()
+        {
+            var model = await leaveRequestRepository.GetMyLeaveDetails();
+            return View(model);
         }
 
         // GET: LeaveRequests/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.LeaveRequests == null)
+            var model = await leaveRequestRepository.GetLeaveRequestAsync(id);
+            if(model == null)
             {
                 return NotFound();
             }
+            return View(model);
+        }
 
-            var leaveRequest = await _context.LeaveRequests
-                .Include(l => l.LeaveType)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (leaveRequest == null)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ApproveRequest(int id, bool approved)
+        {
+            try
             {
-                return NotFound();
+                await leaveRequestRepository.ChangeApprovalStatus(id, approved);
             }
+            catch (Exception ex)
+            {
 
-            return View(leaveRequest);
+                throw;
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: LeaveRequests/Create
@@ -66,19 +78,39 @@ namespace IMS.Web.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Cancel(int id)
+        {
+            try
+            {
+                await leaveRequestRepository.CancelLeaveRequest(id);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return RedirectToAction(nameof(MyLeave));
+        }
+
         // POST: LeaveRequests/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(LeaveRequestCreateVM requestId)
+        public async Task<IActionResult> Create(LeaveRequestCreateVM model)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    await leaveRequestRepository.CreateLeaveRequest(requestId);
-                    return RedirectToAction(nameof(Index));
+                    var isValidRequest = await leaveRequestRepository.CreateLeaveRequest(model);
+                    if(isValidRequest)
+                    {
+                        return RedirectToAction(nameof(MyLeave));
+                    }
+                    ModelState.AddModelError(string.Empty, "You have exceeded your allocated days.");
                 }
             }
             catch (Exception ex)
@@ -86,8 +118,8 @@ namespace IMS.Web.Controllers
                 ModelState.AddModelError(string.Empty, "Errors occured... try again later");
             }
 
-            requestId.LeaveTypes = new SelectList(_context.LeaveTypes, "Id", "Name", requestId.LeaveTypeId); 
-            return View(requestId);
+            model.LeaveTypes = new SelectList(_context.LeaveTypes, "Id", "Name", model.LeaveTypeId); 
+            return View(model);
         }
 
         // GET: LeaveRequests/Edit/5

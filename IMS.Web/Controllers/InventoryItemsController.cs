@@ -176,5 +176,31 @@ namespace IMS.Web.Controllers
 
             return View(itemQuery);
         }
+
+        public async Task<IActionResult> Q_PGS_DIGIBIRD1()
+        {
+            var companyName = "PGS";
+            var assetModel = "5011-1";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == companyName
+                        && p.itemModel == assetModel)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Q_PGS_DB2()
+        {
+            var companyName = "PGS";
+            var assetStatus = "TBR";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == companyName
+                        && p.itemStatus == assetStatus)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
     }
 }

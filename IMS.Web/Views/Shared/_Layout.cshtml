@@ -24,39 +24,42 @@
     <header>
         @*no HEADER implemented*@
     </header>
+        
     <div id="wrapper">
+
+    @*NAV SIDEBAR SECTION*@
     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 toggled">
-            <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" asp-controller="Home" asp-action="Index">
-                    @*<div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>*@
-                    <div class="sidebar-brand-icon rotate-n-15"><img style="width: 40px;height: 40px;" src="~/assets/img/logos/bio-icon.png"></div>                    
-                    <div class="sidebar-brand-text mx-3"><span>SynLabz</span></div>
-                </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="navbar-nav text-light" id="accordionSidebar">
-                    @if (SignInManager.IsSignedIn(User))
+        <div class="container-fluid d-flex flex-column p-0">
+            <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" asp-controller="Home" asp-action="Index">
+                @*<div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>*@
+                <div class="sidebar-brand-icon rotate-n-15"><img style="width: 40px;height: 40px;" src="~/assets/img/logos/bio-icon.png"></div>                    
+                <div class="sidebar-brand-text mx-3"><span>SynLabz</span></div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <ul class="navbar-nav text-light" id="accordionSidebar">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @if(User.IsInRole(Roles.Administrator))
                     {
-                        @if(User.IsInRole(Roles.Administrator))
-                        {
-                        @*<li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Index"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>*@
-                        <li class="nav-item"><a class="nav-link" asp-controller="Clients" asp-action="Index"><i class="fas fa-user"></i><span>Clients</span></a></li>
-                        <hr class="hrThin" />
-                        <li class="nav-item"><a class="nav-link" asp-controller="InboundInvoices" asp-action="Index"><i class="fas fa-truck-arrow-right"></i><span>Inbound</span></a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="OutboundInvoices" asp-action="Index"><i class="fas fa-truck-arrow-right" style="transform:scaleX(-1);"></i><span>Outbound</span></a></li>
-                        <hr class="hrThin"/> 
-                        }
-                        <li class="nav-item"><a class="nav-link" asp-controller="InventoryItems" asp-action="Index"><i class="fas fa-table"></i><span>Inventory</span></a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="ItemModels" asp-action="Index"><i class="fas fa-gears"></i><span>Models</span></a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="ItemStatuses" asp-action="Index"><i class="fas fa-signal"></i><span>Status</span></a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="ItemCategories" asp-action="Index"><i class="fas fa-clipboard-list"></i><span>Category</span></a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="ItemTypes" asp-action="Index"><i class="fas fa-clipboard-question"></i><span>Type</span></a></li>
-                        <hr class="hrThin" />
+                    @*<li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Index"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>*@
+                    <li class="nav-item"><a class="nav-link" asp-controller="Clients" asp-action="Index"><i class="fas fa-user"></i><span>Clients</span></a></li>
+                    <hr class="hrThin" />
+                    <li class="nav-item"><a class="nav-link" asp-controller="InboundInvoices" asp-action="Index"><i class="fas fa-truck-arrow-right"></i><span>Inbound</span></a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="OutboundInvoices" asp-action="Index"><i class="fas fa-truck-arrow-right" style="transform:scaleX(-1);"></i><span>Outbound</span></a></li>
+                    <hr class="hrThin"/> 
                     }
-                    <partial name="_LoginPartial" />
-                </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
-            </div>
-        </nav>
+                    <li class="nav-item"><a class="nav-link" asp-controller="InventoryItems" asp-action="Index"><i class="fas fa-table"></i><span>Inventory</span></a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ItemModels" asp-action="Index"><i class="fas fa-gears"></i><span>Models</span></a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ItemStatuses" asp-action="Index"><i class="fas fa-signal"></i><span>Status</span></a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ItemCategories" asp-action="Index"><i class="fas fa-clipboard-list"></i><span>Category</span></a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="ItemTypes" asp-action="Index"><i class="fas fa-clipboard-question"></i><span>Type</span></a></li>
+                    <hr class="hrThin" />
+                }
+                <partial name="_LoginPartial" />
+            </ul>
+            <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+        </div>
+    </nav>
 
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
@@ -198,7 +201,7 @@
                                 </a>
                             }
                         </div>
-                        @if (SignInManager.IsSignedIn(User))
+                        @*@if (SignInManager.IsSignedIn(User))
                         {
                             @if (User.IsInRole(Roles.Administrator))
                             {
@@ -266,7 +269,7 @@
                                     </div>
                                 </div>
                             }
-                        }
+                        }*@
                         <div class="row ">
                             @RenderBody()
                             <hr style="margin:10px;"/>
@@ -468,15 +471,17 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     <script>
-    $(function() { $('.table').DataTable();
+    $(function() { 
+        $('.table').DataTable();
+
         //$( "#draggable1" ).draggable({ snap: true });
         $( "#draggable1" ).draggable({ snap: [ 20, 20] });
         $( "#draggable2" ).draggable({ snap: [ 20, 20] });
-
         //$( "#draggable2" ).draggable({ snap: ".ui-widget-header" });
         //$( "#draggable3" ).draggable({ snap: ".ui-widget-header", snapMode: "outer" });
         //$( "#draggable4" ).draggable({ grid: [ 20, 20 ] });
         //$( "#draggable5" ).draggable({ grid: [ 80, 80 ] });
+
         });
     </script>
  

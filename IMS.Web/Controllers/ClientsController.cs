@@ -176,11 +176,24 @@ namespace IMS.Web.Controllers
             return _context.Clients.Any(e => e.Id == id);
         }
 
+        // ***** COMPANY SECTION ***** //
+        public async Task<IActionResult> Index_SEISGEAR(int? id)
+        {
+            var client1 = "Seis Gear";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
         public async Task<IActionResult> Index_PGS(int? id)
         {
             var client1 = "PGS";
             var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
                 .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
                 .ToListAsync());
 
             return View(itemQuery);
@@ -191,6 +204,348 @@ namespace IMS.Web.Controllers
             var client1 = "BGP";
             var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
                 .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_LDEO(int? id)
+        {
+            var client1 = "LDEO";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_AXXIS(int? id)
+        {
+            var client1 = "LDEO";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_CSI(int? id)
+        {
+            var client1 = "CSI";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_D2C(int? id)
+        {
+            var client1 = "D2C";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_ECHO(int? id)
+        {
+            var client1 = "ECHO";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_FAIRFIELD(int? id)
+        {
+            var client1 = "FAIRFIELD";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_GEODETICSURVEYS(int? id)
+        {
+            var client1 = "GEODETICSURVEYS";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_GEOMAGNA(int? id)
+        {
+            var client1 = "GEOMAGNA";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_GEOPARTNERGEOFYZIK(int? id)
+        {
+            var client1 = "GEOPARTNERGEOFYZIK";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_GMWELD(int? id)
+        {
+            var client1 = "GMWELD";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_HONGKONGSINO(int? id)
+        {
+            var client1 = "HONGKONGSINO";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_IONGEO(int? id)
+        {
+            var client1 = "IONGEO";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_IXBLUE(int? id)
+        {
+            var client1 = "IXBLUE";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_KRAMAR(int? id)
+        {
+            var client1 = "KRAMAR";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_MAGE(int? id)
+        {
+            var client1 = "MAGE";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_MAGSEIS(int? id)
+        {
+            var client1 = "MAGSEIS";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_MARITIM(int? id)
+        {
+            var client1 = "MARITIM";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_MITCHAM(int? id)
+        {
+            var client1 = "MITCHAM";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_NCS(int? id)
+        {
+            var client1 = "NCS";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_OGF(int? id)
+        {
+            var client1 = "OGF";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_POLARCUS(int? id)
+        {
+            var client1 = "POLARCUS";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_PXGEO(int? id)
+        {
+            var client1 = "PXGEO";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_REM(int? id)
+        {
+            var client1 = "REM";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SAE(int? id)
+        {
+            var client1 = "SAE";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SALT(int? id)
+        {
+            var client1 = "SALT";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SANCOSPIRIT(int? id)
+        {
+            var client1 = "SANCOSPIRIT";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SAP(int? id)
+        {
+            var client1 = "SAP";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SCF(int? id)
+        {
+            var client1 = "SCF";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SEABIRD(int? id)
+        {
+            var client1 = "SEABIRD";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SEAMAP(int? id)
+        {
+            var client1 = "SEAMAP";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
+                .ToListAsync());
+
+            return View(itemQuery);
+        }
+
+        public async Task<IActionResult> Index_SEISGADGET(int? id)
+        {
+            var client1 = "SEISGADGET";
+            var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
+                .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
                 .ToListAsync());
 
             return View(itemQuery);

@@ -19,6 +19,7 @@ namespace IMS.Web.Models
         public string? outboundInvoice { get; set; }
 
         [Display(Name = "Ship Date")]
+        [DataType(DataType.Date)]
         public DateTime? shipDate { get; set; }
 
         [Display(Name = "Qty")]

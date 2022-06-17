@@ -28,7 +28,11 @@ namespace IMS.Web.Controllers
         // GET: InventoryItems
         public async Task<IActionResult> Index()
         {
-            var inventoryItems = mapper.Map<List<InventoryItemDisplayVM>>(await _context.InventoryItems.ToListAsync());
+            var shipped = "Shipped";
+            var inventoryItems = mapper.Map<List<InventoryItemDisplayVM>>(await _context.InventoryItems
+                                        .Where(q => q.itemQty > 0
+                                        && q.itemStatus != shipped)
+                                        .ToListAsync());
             return View(inventoryItems);
         }
 
@@ -172,6 +176,7 @@ namespace IMS.Web.Controllers
             var client1 = "PGS";
             var itemQuery = mapper.Map<List<InventoryItemVM>>(await _context.InventoryItems
                 .Where(p => p.clientName == client1)
+                .OrderBy(p => p.serialNumber)
                 .ToListAsync());
 
             return View(itemQuery);

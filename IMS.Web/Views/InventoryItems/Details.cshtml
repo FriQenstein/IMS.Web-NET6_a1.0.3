@@ -6,7 +6,129 @@
 
 <h4>Item Details</h4>
 
-<div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 bizCard">
+			<div class="row">
+				<div class="col-md-6">
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.clientName)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.clientName)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.itemName)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.itemName)
+                    </dd>
+                     <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.itemQty)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.itemQty)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.serialNumber)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.serialNumber)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.partNumber)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.partNumber)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.itemModel)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.itemModel)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.itemCategory)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.itemCategory)
+                    </dd>
+                </div>
+
+                <div class="col-md-6">
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.itemStatus)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.itemStatus)
+                    </dd>
+                    <dt class = "col-sm-2">
+                        @Html.DisplayNameFor(model => model.itemType)
+                    </dt>
+                    <dd class = "col-sm-10">
+                        &nbsp; @Html.DisplayFor(model => model.itemType)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.inboundInvoice)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.inboundInvoice)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.outboundInvoice)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.outboundInvoice)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.shipDate)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.shipDate)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.itemLocation)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.itemLocation)
+                    </dd>
+                    <dt class = "col-sm-4">
+                        @Html.DisplayNameFor(model => model.itemManufacturer)
+                    </dt>
+                    <dd class = "col-sm-8">
+                        &nbsp; @Html.DisplayFor(model => model.itemManufacturer)
+                    </dd>
+                </div>
+            </div>
+
+            <hr />
+			<div class="row">				
+                <div class="col-md-8">
+                    <div>
+                        <dt class = "col-sm-4">
+                            &nbsp;&nbsp;@Html.DisplayNameFor(model => model.itemNotes)
+                        </dt>
+                        <dd class = "col-sm-8">
+                            &nbsp;&nbsp;&nbsp;&nbsp; @Html.DisplayFor(model => model.itemNotes)
+                        </dd>
+                    </div>
+                </div>
+			</div>
+            <hr />
+            <div class="col-md-3">
+                <div>
+                    <dt style="display:flex; align-content:center;">
+                        <a asp-action="Index" class="btn btn-dark btn-sm"><i class="fa-solid fa-arrow-left hov2"></i> Back</a>&nbsp;|&nbsp;
+                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-sm"><i class="fa-solid fa-pencil hov3"></i> Edit</a>
+                    </dt>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -104,4 +226,4 @@
 <div>
     <a asp-action="Index" class="btn btn-dark btn-sm">Back to List</a>
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-sm">Edit</a>
-</div>
+</div>*@

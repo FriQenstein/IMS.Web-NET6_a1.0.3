@@ -1,7 +1,14 @@
-﻿@{
+﻿@using IMS.Web.Constants
+@using IMS.Web.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<hr />
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Inventory Management System is an application designed to alieviate the woes of dealing with asset management, shipping & receiving invoices,

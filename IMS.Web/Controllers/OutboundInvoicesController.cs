@@ -28,7 +28,9 @@ namespace IMS.Web.Controllers
         // GET: OutboundInvoices
         public async Task<IActionResult> Index()
         {
-            var outboundInvoices = mapper.Map<List<OutboundInvoiceVM>>(await _context.OutboundInvoices.ToListAsync());
+            var outboundInvoices = mapper.Map<List<OutboundInvoiceVM>>(await _context.OutboundInvoices
+                                    .OrderByDescending(p => p.invoiceNumber)
+                                    .ToListAsync());
             return View(outboundInvoices);
         }
 
